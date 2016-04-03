@@ -1,0 +1,66 @@
+/*
+Theme Name: Wordpress Foundation
+Theme URI: https://wordpress.org/
+Author: the UNETI team
+Author URI: https://wordpress.org/
+Description: The foundation wordpress theme for news magazine website
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: wordpress, foundation, responsive, news, magazine
+Text Domain: foundation
+
+This theme, like WordPress, is licensed under the GPL.
+*/
+
+.header {
+    margin-top: 10px;
+}
+
+.header #logo {
+    width: 180px;
+    height: 150px;
+}
+
+.header #banner {
+    width: 800px;
+    height: 150px;
+}
+
+.widget .lead {
+    text-transform: uppercase;
+}
+
+.footer h5 {
+    text-transform: uppercase;
+}
+
+.footer .contact {
+    list-style: none;
+}
+
+.footer .contact i {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-color: #33383b;
+    border-radius: 2px;
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    margin: 0 3px 0 0;
+}
+
+.footer .inline-list a {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-color: #33383b;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    margin: 0 3px 0 0;
+}
