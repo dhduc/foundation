@@ -1,3 +1,11 @@
+.vertical {
+  list-style: none;
+}
+
+.vertical li {
+  padding: 3px 0;
+}
+
 .fi-social-facebook {
   color: dodgerblue;
   font-size: 2rem;
@@ -28,4 +36,85 @@ i.fi-social-tumblr {
   font-size: 2rem;
 }
 
-/*# sourceMappingURL=styles.css.map */
+.topbar {
+  background: #eee;
+}
+
+.topbar ul {
+  background: #eee;
+}
+
+.top-bar-left {
+  display: flex;
+}
+
+@media only screen and (max-width: 1024px) {
+  .top-bar-left {
+    display: block;
+  }
+}
+
+.header {
+  margin-top: 10px;
+}
+
+.header #logo {
+  width: 180px;
+  height: 150px;
+}
+
+.header #banner {
+  width: 800px;
+  height: 150px;
+}
+
+@media only screen and (max-width: 667px) {
+  .header #banner {
+    display: none;
+  }
+}
+
+.widget .lead {
+  text-transform: uppercase;
+}
+
+.footer h5 {
+  text-transform: uppercase;
+}
+
+.footer .contact {
+  list-style: none;
+}
+
+.footer .contact i {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  line-height: 35px;
+  margin: 0 3px 0 0;
+}
+
+.footer .inline-list a {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-color: #33383b;
+  border-radius: 2px;
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  line-height: 35px;
+  margin: 0 3px 0 0;
+}
+
+@media only screen and (max-width: 480px) {
+  .footer .footer-menu {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

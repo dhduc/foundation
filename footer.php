@@ -2,45 +2,32 @@
     <div class="expanded callout secondary">
         <div class="row">
             <div class="large-4 columns">
-                <h5>FLICKR IMAGES</h5>
-
-                <div class="row small-up-4">
-                    <div class="column"><img class="thumbnail"
-                                             src="<?php echo get_template_directory_uri(); ?>/images/75"
-                                             alt="image of space dog"></div>
-                    <div class="column"><img class="thumbnail"
-                                             src="<?php echo get_template_directory_uri(); ?>/images/75"
-                                             alt="image of space dog"></div>
-                    <div class="column"><img class="thumbnail"
-                                             src="<?php echo get_template_directory_uri(); ?>/images/75"
-                                             alt="image of space dog"></div>
-                    <div class="column"><img class="thumbnail"
-                                             src="<?php echo get_template_directory_uri(); ?>/images/75"
-                                             alt="image of space dog"></div>
-                    <div class="column"><img class="thumbnail"
-                                             src="<?php echo get_template_directory_uri(); ?>/images/75"
-                                             alt="image of space dog"></div>
-                    <div class="column"><img class="thumbnail"
-                                             src="<?php echo get_template_directory_uri(); ?>/images/75"
-                                             alt="image of space dog"></div>
-                    <div class="column"><img class="thumbnail"
-                                             src="<?php echo get_template_directory_uri(); ?>/images/75"
-                                             alt="image of space dog"></div>
-                    <div class="column"><img class="thumbnail"
-                                             src="<?php echo get_template_directory_uri(); ?>/images/75"
-                                             alt="image of space dog"></div>
-                </div>
+                <h5>Page Site</h5>
+                <?php if (has_nav_menu('page_menu')) : ?>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'page_menu',
+                        'menu_class' => 'vertical',
+                    ));
+                    ?>
+                <?php endif; ?>
+                <?php if (is_active_sidebar('footer-1')) : ?>
+                    <?php dynamic_sidebar('footer-1'); ?>
+                <?php endif; ?>
             </div>
             <div class="large-4 columns">
-                <h5>FLICKR IMAGES</h5>
-                <span class="secondary label">Space</span>
-                <span class="secondary label">Galaxies</span>
-                <span class="secondary label">Milky Way</span>
-                <span class="secondary label">Black Holes</span>
-                <span class="secondary label">Rebels</span>
-                <span class="secondary label">Death Star</span>
-                <span class="secondary label">Republic</span>
-                <span class="secondary label">R2D2</span>
+                <h5>Member Link</h5>
+                <?php if (has_nav_menu('member_menu')) : ?>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'member_menu',
+                        'menu_class' => 'vertical',
+                    ));
+                    ?>
+                <?php endif; ?>
+                <?php if (is_active_sidebar('footer-2')) : ?>
+                    <?php dynamic_sidebar('footer-2'); ?>
+                <?php endif; ?>
             </div>
             <div class="large-4 columns" id="contact">
                 <h5>About Star Wars</h5>
@@ -48,24 +35,26 @@
                 <p class="about subheader">Strike me down, and I will become more powerful than you could possibly
                     imagine.</p>
                 <ul class="contact">
-                    <li><p><i class="fi-marker"></i>1595 Spring Street New Britain, CT 06051</p></li>
-                    <li><p><i class="fi-telephone"></i>+1-656-453-9966</p></li>
-                    <li><p><i class="fi-mail"></i>contact@emperor.com</p></li>
+                    <li><p><i class="fi-marker"></i><?php echo get_option('director_address', 'Please config address'); ?></p></li>
+                    <li><p><i class="fi-telephone"></i><?php echo get_option('director_phone', 'Please config phone'); ?></p></li>
+                    <li><p><i class="fi-mail"></i><?php echo get_option('director_email', 'Please config email'); ?></p></li>
                 </ul>
 
                 <ul class="inline-list social">
-                    <a href="#"><i class="fi-social-facebook"></i></a>
-                    <a href="#"><i class="fi-social-twitter"></i></a>
-                    <a href="#"><i class="fi-social-linkedin"></i></a>
-                    <a href="#"><i class="fi-social-github"></i></a>
+                    <a href="<?php echo get_option('director_facebook', 'http://facebook.com'); ?>"><i class="fi-social-facebook"></i></a>
+                    <a href="<?php echo get_option('director_twitter', 'http://twitter.com'); ?>"><i class="fi-social-twitter"></i></a>
+                    <a href="<?php echo get_option('director_google_plus', 'http://plus.google.com'); ?>"><i class="fi-social-google-plus"></i></a>
+                    <a href="<?php echo get_option('director_youtube', 'http://youtube.com'); ?>"><i class="fi-social-youtube"></i></a>
                 </ul>
-
+                <?php if (is_active_sidebar('footer-3')) : ?>
+                    <?php dynamic_sidebar('footer-3'); ?>
+                <?php endif; ?>
             </div>
         </div>
     </div>
     <div class="expanded">
         <div class="row">
-            <div class="medium-6 columns">
+            <div class="medium-6 columns footer-menu">
                 <?php if (has_nav_menu('footer_menu')) : ?>
                     <?php
                     wp_nav_menu(array(
@@ -74,7 +63,7 @@
                     ));
                     ?>
                 <?php else: ?>
-                    <p>Please set up footer menu</p>
+                    <p>Please setup footer menu</p>
                 <?php endif; ?>
             </div>
             <div class="medium-6 columns">
@@ -100,6 +89,16 @@
         });
     });
 </script>
-
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.flexnav.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".flexnav").flexNav();
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".widget.wp_ara_widget_random_posts ul").addClass('vertical');
+    });
+</script>
 </body>
 </html>

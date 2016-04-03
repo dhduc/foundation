@@ -1,0 +1,42 @@
+$i-bg: #33383b;
+$a-bg: #33383b;
+.footer {
+    h5 {
+    text-transform: uppercase;
+    }
+    .contact {
+        list-style: none;
+        i {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            background-color: $i-bg;
+            border-radius: 2px;
+            font-size: 1rem;
+            color: $white;
+            text-align: center;
+            line-height: 35px;
+            margin: 0 3px 0 0;
+        }
+    }
+    .inline-list {
+        a {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            background-color: $a-bg;
+            border-radius: 2px;
+            font-size: 1.5rem;
+            color: $white;
+            text-align: center;
+            line-height: 35px;
+            margin: 0 3px 0 0;
+        }
+    }
+    .footer-menu {
+        @media only screen and (max-width: $xx-small-screen) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}

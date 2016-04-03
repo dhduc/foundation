@@ -1,0 +1,11 @@
+$white: #fff;
+$black: #000;
+$md-screen: 1024px;
+$x-small-screen: 667px;
+$xx-small-screen: 480px;
+.vertical {
+    list-style: none;
+    li {
+        padding: 3px 0;
+    }
+}

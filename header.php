@@ -34,7 +34,7 @@
 <body <?php body_class(); ?>>
 <header>
 
-    <div class="top-bar">
+    <div class="top-bar topbar">
         <div class="row">
             <div class="top-bar-left">
                 <?php if (has_nav_menu('top_menu')) : ?>
@@ -45,8 +45,16 @@
                     ));
                     ?>
                 <?php else: ?>
-                    <p>Please set up top menu</p>
+                    <p>Please setup top menu</p>
                 <?php endif; ?>
+                <ul class="menu">
+                    <li><a href="http://foundation.zurb.com/templates-previews-sites-f6/news-magazine.html#">EN</a>
+                    </li>
+                    <li><a href="http://foundation.zurb.com/templates-previews-sites-f6/news-magazine.html#">VI</a>
+                    </li>
+                    <li><a href="http://foundation.zurb.com/templates-previews-sites-f6/news-magazine.html#">Login</a>
+                    </li>
+                </ul>
             </div>
 
             <div class="top-bar-right">
@@ -98,7 +106,7 @@
                 ));
                 ?>
             <?php else: ?>
-                <p>Please set up header menu</p>
+                <p>Please setup header menu</p>
             <?php endif; ?>
         </div>
     </div>

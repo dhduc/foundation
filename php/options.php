@@ -19,20 +19,22 @@ function register_settings()
     register_setting('director-settings-group', 'director_favico');
     register_setting('director-settings-group', 'director_logo');
     register_setting('director-settings-group', 'director_banner');
+    register_setting('director-settings-group', 'director_address');
     register_setting('director-settings-group', 'director_phone');
     register_setting('director-settings-group', 'director_email');
     register_setting('director-settings-group', 'director_keywords');
     register_setting('director-settings-group', 'director_description');
     register_setting('director-settings-group', 'director_news');
     register_setting('director-settings-group', 'director_pagi');
-    register_setting('director-settings-group', 'director_facebook');
-    register_setting('director-settings-group', 'director_twitter');
     register_setting('director-settings-group', 'director_rss');
     register_setting('director-settings-group', 'director_logo');
     register_setting('director-settings-group', 'director_analytics');
     register_setting('director-settings-group', 'first_block');
     register_setting('director-settings-group', 'second_block');
-    register_setting('director-settings-group', 'director_google');
+    register_setting('director-settings-group', 'director_facebook');
+    register_setting('director-settings-group', 'director_twitter');
+    register_setting('director-settings-group', 'director_google_plus');
+    register_setting('director-settings-group', 'director_youtube');
 }
 
 function director_settings_page()
@@ -70,7 +72,7 @@ function director_settings_page()
             <div class="tab_option">
                 <ul class="tabs">
                     <li class="tab-link current" data-tab="tab-1">Site options</li>
-                    <li class="tab-link" data-tab="tab-2">SEOs</li>
+                    <li class="tab-link" data-tab="tab-2">SEO</li>
                     <li class="tab-link" data-tab="tab-3">Front page options</li>
                     <li class="tab-link" data-tab="tab-4">Social options</li>
 
@@ -106,6 +108,14 @@ function director_settings_page()
                                             <p><input type="text" name="director_banner"
                                                       value="<?php print get_option('director_banner'); ?>"
                                                       placeholder="URL"/></p>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>Address:</td>
+                                        <td>
+                                            <p><input type="text" name="director_address"
+                                                      value="<?php print get_option('director_address'); ?>"
+                                                      placeholder=""/></p>
                                         </td>
                                     </tr>
                                     <tr>
@@ -223,12 +233,19 @@ function director_settings_page()
                         <tr>
                             <td>Google Plus:</td>
                             <td>
-                                <p><input type="text" name="director_google"
-                                          value="<?php print get_option('director_google'); ?>"
+                                <p><input type="text" name="director_google_plus"
+                                          value="<?php print get_option('director_google_plus'); ?>"
                                           placeholder="http://plus.google.com"/></p>
                             </td>
                         </tr>
-
+                        <tr>
+                            <td>Youtube:</td>
+                            <td>
+                                <p><input type="text" name="director_youtube"
+                                          value="<?php print get_option('director_youtube'); ?>"
+                                          placeholder="http://youtube.com"/></p>
+                            </td>
+                        </tr>
                     </table>
                 </div>
             </div>
