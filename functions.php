@@ -9,6 +9,7 @@ define('SITE', get_bloginfo('stylesheet_directory'));
 require_once(get_stylesheet_directory() . '/php/function.php');
 require_once(get_stylesheet_directory() . '/php/options.php');
 require_once(get_stylesheet_directory() . '/php/logo_option.php');
+require_once(get_stylesheet_directory() . '/php/menu.php');
 if (version_compare($GLOBALS['wp_version'], '4.4-alpha', '<')) {
     require get_template_directory() . '/inc/back-compat.php';
 }

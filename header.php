@@ -118,6 +118,17 @@
                 <p>Please setup header menu</p>
             <?php endif; ?>
         </div>
+        <div class="row">
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'header_menu',
+                'container' => false,
+                'menu_id' => 'nav',
+                'depth' => 1,
+                'walker' => new Custom_Walker_Nav_Menu(),
+            ));
+            ?>
+        </div>
     </div>
 </header>
 <br/>
