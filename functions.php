@@ -66,6 +66,8 @@ function foundation_scripts()
     wp_enqueue_style('foundation_css', get_template_directory_uri() . '/css/foundation.min.css', array(), null);
     // zend foundation icon
     wp_enqueue_style('foundation_icon', get_template_directory_uri() . '/font-icon/foundation-icons.css', array(), null);
+    // font awesome
+    wp_enqueue_style('font_awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), null);
     // flexnav menu
     wp_enqueue_style('flexnav', get_template_directory_uri() . '/css/flexnav.css', array(), null);
     // foundation style
