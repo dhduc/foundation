@@ -85,12 +85,7 @@
         </div>
     </div>
     <br>
-    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium"
-         data-responsivetoggle="vammpy-responsivetoggle" style="display: none;">
-        <button class="menu-icon" type="button" data-toggle=""></button>
-        <div class="title-bar-title">Menu</div>
-    </div>
-    <div class="top-bar" id="main-menu">
+    <div class="top-bar header_menu">
         <div class="row">
             <?php if (has_nav_menu('header_menu')) : ?>
                 <?php
@@ -98,9 +93,9 @@
                     'theme_location' => 'header_menu',
                     'menu' => '',
                     'container' => 'div',
-                    'container_class' => 'header_menu',
-                    'container_id' => 'main-menu',
-                    'menu_class' => 'menu vertical medium-horizontal expanded medium-text-center dropdown',
+                    'container_class' => '',
+                    'container_id' => 'cssmenu',
+                    'menu_class' => '',
                     'menu_id' => '',
                     'echo' => true,
                     'fallback_cb' => 'wp_page_menu',
@@ -110,24 +105,13 @@
                     'link_after' => '',
                     'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
                     'depth' => 0,
-                    'walker' => ''
+                    'walker' => '',
                 );
                 wp_nav_menu($header_menu);
                 ?>
             <?php else: ?>
                 <p>Please setup header menu</p>
             <?php endif; ?>
-        </div>
-        <div class="row">
-            <?php
-            wp_nav_menu(array(
-                'theme_location' => 'header_menu',
-                'container' => false,
-                'menu_id' => 'nav',
-                'depth' => 1,
-                'walker' => new Custom_Walker_Nav_Menu(),
-            ));
-            ?>
         </div>
     </div>
 </header>

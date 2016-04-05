@@ -77,6 +77,7 @@
 </footer>
 <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-2.1.4.min.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/foundation.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/menu.js"></script>
 <script>
     $(document).foundation();
 </script>

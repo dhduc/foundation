@@ -74,6 +74,10 @@ i.fi-social-tumblr {
   }
 }
 
+.top-bar.header_menu, .top-bar.header_menu ul {
+  background-color: #333;
+}
+
 .widget .lead {
   text-transform: uppercase;
 }

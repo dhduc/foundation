@@ -27,3 +27,8 @@ $topbar-bg: #eee;
     	}
     }
 }
+.top-bar.header_menu {
+    &, & ul {
+        background-color: #333;
+    }
+}

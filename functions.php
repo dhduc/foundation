@@ -70,9 +70,11 @@ function foundation_scripts()
     wp_enqueue_style('font_awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), null);
     // flexnav menu
     wp_enqueue_style('flexnav', get_template_directory_uri() . '/css/flexnav.css', array(), null);
-    // foundation style
+    // responsive menu
+    wp_enqueue_style('menu', get_template_directory_uri() . '/css/menu.css', array(), null);
+    // style
     wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), null);
-    // foundation styles
+    // styles
     wp_enqueue_style('styles', get_template_directory_uri() . '/css/styles.css', array(), null);
 
     // jquery
