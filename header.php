@@ -19,6 +19,7 @@
     <?php endif; ?>
     <?php wp_enqueue_scripts(); ?>
     <?php wp_head(); ?>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery-2.1.4.min.js"></script>
 </head>
 <body <?php body_class(); ?>>
 <header>

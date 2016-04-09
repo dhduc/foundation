@@ -75,7 +75,6 @@
     </div>
 
 </footer>
-<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/foundation.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.menu.js"></script>
 <script>
@@ -94,5 +93,6 @@
         $(".widget.wp_ara_widget_random_posts ul").addClass('vertical');
     });
 </script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.nivo.slider.pack.js"></script>
 </body>
 </html>

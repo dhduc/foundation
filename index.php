@@ -7,10 +7,30 @@
 <?php if (is_home() && is_front_page()) : ?>
     <div class="row">
         <div class="medium-8 columns">
-            <?php if (is_active_sidebar('slider')) : ?>
-                <?php dynamic_sidebar('slider'); ?>
-            <?php endif; ?>
+            <div class="slider-wrapper theme-default">
+                <?php
+                $slide = new WP_Query();
+                $slide->query('showposts=5&post_type=slide');
+                if ($slide->have_posts()): ?>
+                    <div id="slider" class="nivoSlider">
+                        <?php while ($slide->have_posts()) : $slide->the_post(); ?>
+                            <a href="<?php echo the_permalink(); ?>">
+                                <img src="<?php echo thumb_image(); ?>" alt="<?php the_title() ?>"
+                                     title="<?php the_title() ?>"/>
+                            </a>
+                        <?php endwhile; ?>
+                    </div>
+                    <script type="text/javascript">
+                        $(window).load(function () {
+                            $('#slider').nivoSlider();
+                        });
+                    </script>
+                <?php else: ?>
+                    <p>Please setup slideshow</p>
+                <?php endif; ?>
+            </div>
         </div>
+
         <div class="medium-4 columns">
             <ul class="vertical">
                 <?php if (have_posts()) : ?>

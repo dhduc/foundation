@@ -69,6 +69,10 @@ function foundation_scripts()
     wp_enqueue_style('foundation_css', get_template_directory_uri() . '/css/foundation.min.css', array(), null);
     // font awesome
     wp_enqueue_style('font_awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), null);
+    // nivo slider
+    wp_enqueue_style('nivo_slider', get_template_directory_uri() . '/slide/css/nivo-slider.css', array(), null);
+    wp_enqueue_style('nivo_slider_theme', get_template_directory_uri() . '/slide/css/default.css', array(), null);
+
      // responsive menu
     wp_enqueue_style('jquery_menu', get_template_directory_uri() . '/css/jquery-menu.css', array(), null);
     // style

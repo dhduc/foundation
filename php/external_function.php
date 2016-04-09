@@ -278,3 +278,60 @@ function wptutsplus_login_logo()
 <?php endif; ?>
 <?php }
 add_action('login_enqueue_scripts', 'wptutsplus_login_logo');
+
+/**
+ * Slide post
+ */
+function create_slide_post_type()
+{
+    register_post_type('slide',
+        array(
+            'labels' => array(
+                'name' => __('SlideShow'),
+                'singular_name' => __('SlideShow'),
+                'add_new' => __('Add New'),
+                'add_new_item' => __('Add New SlideShow'),
+                'edit' => __('Edit'),
+                'edit_item' => __('Edit SlideShow'),
+                'new_item' => __('New SlideShow'),
+                'view' => __('View SlideShow'),
+                'view_item' => __('View SlideShow'),
+                'search_items' => __('Search SlideShow'),
+                'not_found' => __('No Slide Item found'),
+                'not_found_in_trash' => __('No Slide Item found in Trash')
+            ),
+            'public' => true,
+            'show_ui' => true,
+            'publicy_queryable' => true,
+            'exclude_from_search' => false,
+            'menu_position' => 20,
+            'menu_icon' => get_stylesheet_directory_uri() . '/adminhtml/images/slideshow.png',
+            'hierarchical' => false,
+            'query_var' => true,
+            'supports' => array(
+                'title', 'editor', 'comments', 'author', 'excerpt', 'thumbnail',
+                'custom-fields'
+            ),
+            'rewrite' => array('slug' => 'item', 'with_front' => false),
+            //'taxonomies' =>  array('post_tag', 'category'),
+            'can_export' => true,
+            //'register_meta_box_cb'  =>  'call_to_function_do_something',
+            'description' => __('Slide')
+        )
+    );
+}
+add_action('init', 'create_slide_post_type');
+
+/**
+ * Get first image of slide post to set slideshow
+ */
+function thumb_image()
+{
+    global $post, $posts;
+    $first_img = '';
+    ob_start();
+    ob_end_clean();
+    $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+    $first_img = $matches[1][0];
+    return $first_img;
+}
