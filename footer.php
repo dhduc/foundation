@@ -73,8 +73,9 @@
             </div>
         </div>
     </div>
-
 </footer>
+<a href="#" id="back-to-top" title="Back to top"><i class="fa fa-chevron-up"></i></a>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/foundation.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.menu.js"></script>
 <script>
@@ -88,11 +89,39 @@
         });
     });
 </script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.nivo.slider.pack.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $(".widget.wp_ara_widget_random_posts ul").addClass('vertical');
+    $(window).load(function () {
+        $('#slider').nivoSlider();
     });
 </script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.nivo.slider.pack.js"></script>
+<style>
+
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($('#back-to-top').length) {
+            var scrollTrigger = 100, // px
+                backToTop = function () {
+                    var scrollTop = $(window).scrollTop();
+                    if (scrollTop > scrollTrigger) {
+                        $('#back-to-top').addClass('show');
+                    } else {
+                        $('#back-to-top').removeClass('show');
+                    }
+                };
+            backToTop();
+            $(window).on('scroll', function () {
+                backToTop();
+            });
+            $('#back-to-top').on('click', function (e) {
+                e.preventDefault();
+                $('html,body').animate({
+                    scrollTop: 0
+                }, 700);
+            });
+        }
+    });
+</script>
 </body>
 </html>

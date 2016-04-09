@@ -12,10 +12,3 @@ Text Domain: foundation
 
 This theme, like WordPress, is licensed under the GPL.
 */
-.post-thumbnail img {
-    width: 350px;
-}
-.feature-thumbnail img {
-    width: 40px;
-    height: 40px;
-}

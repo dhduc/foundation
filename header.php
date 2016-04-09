@@ -19,7 +19,6 @@
     <?php endif; ?>
     <?php wp_enqueue_scripts(); ?>
     <?php wp_head(); ?>
-    <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery-2.1.4.min.js"></script>
 </head>
 <body <?php body_class(); ?>>
 <header>
@@ -50,18 +49,7 @@
                 </ul>
             </div>
             <div class="top-bar-right">
-                <ul class="menu">
-                    <li>
-                        <form action="<?php echo esc_url(home_url('/')); ?>" id="searchform" method="get">
-                            <input type="search" onfocus="if (this.value == 'Search') {this.value = '';}"
-                                   onblur="if (this.value == '')  {this.value = 'Search';}" id="s" name="s"
-                                   value="Search"/>
-                        </form>
-                    </li>
-                    <li>
-                        <button type="button" class="button" id="btn-submit">Search</button>
-                    </li>
-                </ul>
+                    <?php get_search_form(); ?>
             </div>
         </div>
     </div>

@@ -182,11 +182,11 @@ add_action('save_post', 'save_data');
 if (!function_exists('wpbreadcrumbs')) :
     function wpbreadcrumbs()
     {
-        $delimiter = ' <i class="icon-chevron-right"></i> ';
+        $delimiter = ' <i class="fa fa-chevron-right"></i> ';
         $name = 'Trang chủ'; //text for the 'Home' link
         $currentBefore = '<span class="current bread-title">';
         $currentAfter = '</span>';
-        echo '<span class="tip"> Website: </span>';
+        echo '<span class="tip"> Home: </span>';
         global $post;
         $home = get_bloginfo('url');
         if (is_home() && get_query_var('paged') == 0)
@@ -335,3 +335,32 @@ function thumb_image()
     $first_img = $matches[1][0];
     return $first_img;
 }
+
+?>
+<?php
+/**
+ * @param $comment
+ * @param $args
+ * @param $depth
+ */
+function wp_comment($comment, $args, $depth)    {
+    $GLOBALS['comment'] = $comment; ?>
+    <li <?php comment_class();?> id="li-comment-<?php comment_ID();?>">
+
+        <div id="comment-<?php comment_ID();?>" class="clearfix comment-body">
+            <div class="comment-author vcard">
+                <?php echo get_avatar($comment, $size='60', $default='<path_to_url>'); ?>
+                <?php printf(__('<span class="fn">%s</span><br />'), get_comment_author_link()); ?>
+                <?php if($comment->comment_approved == '0') : ?>
+                <em><?php echo 'Your coment is waiting for moderation.';?></em>
+                <?php endif; ?>
+            </div><!-- end comment autho vcard-->
+            <div class="comment-meta commentmetadata">
+            <?php printf(get_comment_date());?><?php edit_comment_link(__('(Edit)'),' ',''); ?>
+            </div><!--end .comment-meta-->
+            <p class="commentcontent"><?php comment_text(); ?></p>
+            <div class="reply">
+                <?php comment_reply_link(array_merge($args,array('depth' => $depth, 'max_depth'=> $args['max_depth'])));?>
+            </div><!--end .reply-->
+        </div><!--end #comment-author-vcard-->
+<?php }?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Wordpress foundation theme
+ * Homepage index
  */
 ?>
 <?php get_header(); ?>
@@ -20,11 +20,6 @@
                             </a>
                         <?php endwhile; ?>
                     </div>
-                    <script type="text/javascript">
-                        $(window).load(function () {
-                            $('#slider').nivoSlider();
-                        });
-                    </script>
                 <?php else: ?>
                     <p>Please setup slideshow</p>
                 <?php endif; ?>
