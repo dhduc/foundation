@@ -35,16 +35,16 @@
                 <p class="about subheader">Strike me down, and I will become more powerful than you could possibly
                     imagine.</p>
                 <ul class="contact">
-                    <li><p><i class="fi-marker"></i><?php echo get_option('director_address', 'Please config address'); ?></p></li>
-                    <li><p><i class="fi-telephone"></i><?php echo get_option('director_phone', 'Please config phone'); ?></p></li>
-                    <li><p><i class="fi-mail"></i><?php echo get_option('director_email', 'Please config email'); ?></p></li>
+                    <li><p><i class="fa fa-map-marker"></i><?php echo get_option('director_address', 'Please config address'); ?></p></li>
+                    <li><p><i class="fa fa-phone-square"></i><?php echo get_option('director_phone', 'Please config phone'); ?></p></li>
+                    <li><p><i class="fa fa-envelope"></i><?php echo get_option('director_email', 'Please config email'); ?></p></li>
                 </ul>
 
                 <ul class="inline-list social">
-                    <a href="<?php echo get_option('director_facebook', 'http://facebook.com'); ?>"><i class="fi-social-facebook"></i></a>
-                    <a href="<?php echo get_option('director_twitter', 'http://twitter.com'); ?>"><i class="fi-social-twitter"></i></a>
-                    <a href="<?php echo get_option('director_google_plus', 'http://plus.google.com'); ?>"><i class="fi-social-google-plus"></i></a>
-                    <a href="<?php echo get_option('director_youtube', 'http://youtube.com'); ?>"><i class="fi-social-youtube"></i></a>
+                    <a href="<?php echo get_option('director_facebook', 'http://facebook.com'); ?>"><i class="fa fa-facebook"></i></a>
+                    <a href="<?php echo get_option('director_twitter', 'http://twitter.com'); ?>"><i class="fa fa-twitter"></i></a>
+                    <a href="<?php echo get_option('director_google_plus', 'http://plus.google.com'); ?>"><i class="fa fa-google-plus"></i></a>
+                    <a href="<?php echo get_option('director_youtube', 'http://youtube.com'); ?>"><i class="fa fa-youtube"></i></a>
                 </ul>
                 <?php if (is_active_sidebar('footer-3')) : ?>
                     <?php dynamic_sidebar('footer-3'); ?>
@@ -75,25 +75,18 @@
     </div>
 
 </footer>
-<script src="<?php echo get_template_directory_uri(); ?>/js/jquery-2.1.4.min.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/foundation.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/menu.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/foundation.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery.menu.js"></script>
 <script>
     $(document).foundation();
 </script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/zcom.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#btn-submit').click(function (e) {
             e.preventDefault();
             $('#searchform').submit();
         });
-    });
-</script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.flexnav.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $(".flexnav").flexNav();
     });
 </script>
 <script type="text/javascript">

@@ -1,10 +1,12 @@
 <div class="row">
                 <div class="large-6 columns">
-                    <p><?php 
-     if ( has_post_thumbnail() ) {
-           the_post_thumbnail();
-} 
-?></p>
+                    <a href="javascript:void(0)" class="post-thumbnail">
+                        <?php
+                        if (has_post_thumbnail()) {
+                            the_post_thumbnail();
+                        }
+                        ?>
+                    </a>
                 </div>
                 <div class="large-6 columns">
 

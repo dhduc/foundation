@@ -7,28 +7,26 @@
 <?php if (is_home() && is_front_page()) : ?>
     <div class="row">
         <div class="medium-8 columns">
-            <p><img src="<?php echo get_template_directory_uri(); ?>/images/900x450&amp;text=Promoted Article"
-                    alt="main article image"></p>
+            <?php if (is_active_sidebar('slider')) : ?>
+                <?php dynamic_sidebar('slider'); ?>
+            <?php endif; ?>
         </div>
         <div class="medium-4 columns">
             <ul class="vertical">
                 <?php if (have_posts()) : ?>
                     <?php
-                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 7;
+                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 6;
                     $args = array(
-                        'post_status' => 'publish',
-                        'meta_query' => array(
-                            array(
-                                'key' => 'feature',
-                                'value' => 1,
-                            )
-                        ),
-                        'paged' => $paged
+                        'posts_per_page' => $paged,
+                        'ignore_sticky_posts' => 1,
+                        'orderby' => 'date',
+                        'meta_key' => 'feature',
+                        'meta_compare' => '=',
+                        'meta_value' => 'Enable',
                     );
                     $featurePost = new WP_Query($args);
                     while ($featurePost->have_posts()) : $featurePost->the_post();
                         get_template_part('template-parts/feature', get_post_format());
-                        // End the loop.
                     endwhile;
                 endif;
                 ?>

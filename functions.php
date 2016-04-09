@@ -1,19 +1,20 @@
 <?php
 /**
- * Functions
+ * Core function
  */
 ?>
 
 <?php
 define('SITE', get_bloginfo('stylesheet_directory'));
-require_once(get_stylesheet_directory() . '/php/function.php');
-require_once(get_stylesheet_directory() . '/php/options.php');
-require_once(get_stylesheet_directory() . '/php/logo_option.php');
-require_once(get_stylesheet_directory() . '/php/menu.php');
+require_once(get_stylesheet_directory() . '/php/external_function.php');
+require_once(get_stylesheet_directory() . '/php/theme_function.php');
+require_once(get_stylesheet_directory() . '/php/logo_function.php');
+require_once(get_stylesheet_directory() . '/php/menu_function.php');
 if (version_compare($GLOBALS['wp_version'], '4.4-alpha', '<')) {
     require get_template_directory() . '/inc/back-compat.php';
 }
-
+?>
+<?php
 /**
  * Setup
  */
@@ -61,31 +62,33 @@ add_action('after_setup_theme', 'foundation_setup');
  */
 function foundation_scripts()
 {
-
+    /**
+     * Styles
+     */
     // zend foundation
     wp_enqueue_style('foundation_css', get_template_directory_uri() . '/css/foundation.min.css', array(), null);
-    // zend foundation icon
-    wp_enqueue_style('foundation_icon', get_template_directory_uri() . '/font-icon/foundation-icons.css', array(), null);
     // font awesome
     wp_enqueue_style('font_awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), null);
-    // flexnav menu
-    wp_enqueue_style('flexnav', get_template_directory_uri() . '/css/flexnav.css', array(), null);
-    // responsive menu
-    wp_enqueue_style('menu', get_template_directory_uri() . '/css/menu.css', array(), null);
+     // responsive menu
+    wp_enqueue_style('jquery_menu', get_template_directory_uri() . '/css/jquery-menu.css', array(), null);
     // style
     wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), null);
     // styles
     wp_enqueue_style('styles', get_template_directory_uri() . '/css/styles.css', array(), null);
 
-    // jquery
-    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery-2.1.4.min.js', array(), '20151204', true);
+    /**
+     * Scripts
+     */
     // zend foundation js
-    wp_enqueue_script('foundation_js', get_template_directory_uri() . '/js/foundation.js', array(), '20151204', true);
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery-2.1.4.min.js', array(), 2.1, true);
+    // zend foundation js
+    wp_enqueue_script('foundation_js', get_template_directory_uri() . '/js/foundation.js', array(), 6.0, true);
     // zcom
-    wp_enqueue_script('zcom', get_template_directory_uri() . '/js/zcom.js', array(), '20151204', true);
-
+    wp_enqueue_script('zcom', get_template_directory_uri() . '/js/zcom.js', array(), 1.0, true);
+    // jquery menu
+    wp_enqueue_script('jquery_menu', get_template_directory_uri() . '/js/jquery.menu.js', array(), 1.0, true);
     // html5 for ie
-    wp_enqueue_script('foundation-html5', 'https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js', array(), '3.7.3');
+    wp_enqueue_script('foundation-html5', 'https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js', array(), 3.7);
     wp_script_add_data('foundation-html5', 'conditional', 'lt IE 9');
 
 }
@@ -103,83 +106,18 @@ function wpdocs_custom_excerpt_length($length)
 add_filter('excerpt_length', 'wpdocs_custom_excerpt_length', 999);
 
 /**
- * Pagination
- */
-function numeric_posts_nav()
-{
-
-    if (is_singular())
-        return;
-
-    global $wp_query;
-
-    /** Stop execution if there's only 1 page */
-    if ($wp_query->max_num_pages <= 1)
-        return;
-
-    $paged = get_query_var('paged') ? absint(get_query_var('paged')) : 1;
-    $max = intval($wp_query->max_num_pages);
-
-    /** Add current page to the array */
-    if ($paged >= 1)
-        $links[] = $paged;
-
-    /** Add the pages around the current page to the array */
-    if ($paged >= 3) {
-        $links[] = $paged - 1;
-        $links[] = $paged - 2;
-    }
-
-    if (($paged + 2) <= $max) {
-        $links[] = $paged + 2;
-        $links[] = $paged + 1;
-    }
-
-    echo '<ul class="pagination" role="navigation" aria-label="Pagination">' . "\n";
-
-    /** Previous Post Link */
-    if (get_previous_posts_link())
-        printf('<li>%s</li>' . "\n", get_previous_posts_link());
-
-    /** Link to first page, plus ellipses if necessary */
-    if (!in_array(1, $links)) {
-        $class = 1 == $paged ? ' class="current"' : '';
-
-        printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link(1)), '1');
-
-        if (!in_array(2, $links))
-            echo '<li>…</li>';
-    }
-
-    /** Link to current page, plus 2 pages in either direction if necessary */
-    sort($links);
-    foreach ((array)$links as $link) {
-        $class = $paged == $link ? ' class="current"' : '';
-        printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($link)), $link);
-    }
-
-    /** Link to last page, plus ellipses if necessary */
-    if (!in_array($max, $links)) {
-        if (!in_array($max - 1, $links))
-            echo '<li>…</li>' . "\n";
-
-        $class = $paged == $max ? ' class="current"' : '';
-        printf('<li%s><a href="%s">%s</a></li>' . "\n", $class, esc_url(get_pagenum_link($max)), $max);
-    }
-
-    /** Next Post Link */
-    if (get_next_posts_link())
-        printf('<li>%s</li>' . "\n", get_next_posts_link());
-
-    echo '</ul>' . "\n";
-
-}
-
-/**
  * Widget
  */
 function foundation_widgets_init()
 {
+    register_sidebar(array(
+        'name' => __('Slider Section', 'Foundation'),
+        'id' => 'slider',
+        'description' => __('Add slider widget to section', 'foundation'),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget' => '</div>',
+    ));
+
     register_sidebar(array(
         'name' => __('Sidebar 1', 'Foundation'),
         'id' => 'sidebar-1',

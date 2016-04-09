@@ -12,13 +12,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta class="foundation-mq">
-    <title> <?php wp_title('', true, 'right');
-        bloginfo('name'); ?> </title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title> <?php wp_title('', true, 'right'); bloginfo('name'); ?> </title>
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <?php if (is_singular() && pings_open(get_queried_object())) : ?>
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
     <?php endif; ?>
+    <?php wp_enqueue_scripts(); ?>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -38,11 +37,14 @@
                     <p>Please setup top menu</p>
                 <?php endif; ?>
                 <ul class="menu">
-                    <li><a href="http://foundation.zurb.com/templates-previews-sites-f6/news-magazine.html#">EN</a>
+                    <li>
+                        <a href="javascript: void(0)">EN</a>
                     </li>
-                    <li><a href="http://foundation.zurb.com/templates-previews-sites-f6/news-magazine.html#">VI</a>
+                    <li>
+                        <a href="javascript: void(0)">VI</a>
                     </li>
-                    <li><a href="http://foundation.zurb.com/templates-previews-sites-f6/news-magazine.html#">Login</a>
+                    <li>
+                        <a href="javascript: void(0)"><i class="fa fa-sign-in"></i>Login</a>
                     </li>
                 </ul>
             </div>
