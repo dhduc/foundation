@@ -1,3 +1,11 @@
+a {
+  color: #144377;
+}
+
+a:focus, a:hover {
+  color: #033266;
+}
+
 /* Menu vertical */
 .vertical {
   list-style: none;
@@ -5,6 +13,27 @@
 
 .vertical li {
   padding: 3px 0;
+}
+
+.label-white {
+  color: #fff;
+}
+
+/* Pagination */
+.pagination .current a {
+  color: #fff;
+}
+
+.pagination .current a:hover {
+  background: none;
+}
+
+.pagination .current button {
+  color: #fff;
+}
+
+.pagination .current button:hover {
+  background: none;
 }
 
 /* Back-to-top */
@@ -76,11 +105,38 @@ i.fi-social-tumblr {
 }
 
 .topbar {
-  background: #eee;
+  background: url("../images/starfield-banner.jpg");
+  padding: 0.6rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .topbar {
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+  }
 }
 
 .topbar ul {
-  background: #eee;
+  background: none;
+}
+
+.topbar ul a {
+  color: #fff;
+}
+
+.topbar #searchform input {
+  background: #333;
+  border-color: #000;
+}
+
+.topbar #searchform input:focus {
+  box-shadow: none;
+}
+
+.topbar #searchform button {
+  border-radius: 5px;
 }
 
 .top-bar-left {
@@ -94,7 +150,13 @@ i.fi-social-tumblr {
 }
 
 .header {
-  margin-top: 10px;
+  margin-top: 75px;
+}
+
+@media only screen and (max-width: 667px) {
+  .header {
+    margin-top: 20px;
+  }
 }
 
 .header #logo {
@@ -113,8 +175,22 @@ i.fi-social-tumblr {
   }
 }
 
+.top-bar.header_menu {
+  padding: 0.1rem;
+  z-index: 9000;
+}
+
 .top-bar.header_menu, .top-bar.header_menu ul {
-  background-color: #333;
+  background-color: #144377;
+}
+
+.top-bar.header_menu .sub-menu {
+  z-index: 9000;
+}
+
+.post-thumbnail {
+  width: 350px;
+  height: 250px;
 }
 
 .post-thumbnail img {
@@ -127,11 +203,63 @@ i.fi-social-tumblr {
   height: 40px;
 }
 
+.post-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.post-image .overlay {
+  display: block;
+  position: absolute;
+  top: 250px;
+  left: 0;
+  margin-left: 15px;
+  width: 350px;
+  height: 250px;
+  background: #000;
+  opacity: 0.7;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.post-image .overlay a {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.post-image:hover .overlay {
+  display: block;
+  top: 0;
+}
+
+.post-content img {
+  max-width: 64%;
+}
+
 .widget .lead {
   text-transform: uppercase;
 }
 
-.footer h5 {
+.footer .callout {
+  border: none;
+  background-color: #144377;
+  border-bottom: 1px solid #fff;
+}
+
+.footer .callout h5, .footer .callout li, .footer .callout p, .footer .callout a {
+  color: #fff;
+}
+
+.footer .callout h5 {
   text-transform: uppercase;
 }
 
@@ -143,7 +271,7 @@ i.fi-social-tumblr {
   display: inline-block;
   width: 2rem;
   height: 2rem;
-  background-color: #33383b;
+  background-color: #366599;
   border-radius: 2px;
   font-size: 1rem;
   color: #fff;
@@ -156,7 +284,7 @@ i.fi-social-tumblr {
   display: inline-block;
   width: 2rem;
   height: 2rem;
-  background-color: #33383b;
+  background-color: #366599;
   border-radius: 2px;
   font-size: 1.5rem;
   color: #fff;
@@ -165,9 +293,21 @@ i.fi-social-tumblr {
   margin: 0 3px 0 0;
 }
 
+.footer .footer-menu .menu > li:first-child a {
+  padding-left: 0;
+}
+
+.footer .footer-menu .copyright .menu li {
+  padding-right: 0;
+}
+
 @media only screen and (max-width: 480px) {
   .footer .footer-menu {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+.footer .footer-bottom a {
+  color: #366599;
 }

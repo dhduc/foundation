@@ -1,8 +1,17 @@
-$i-bg: #33383b;
-$a-bg: #33383b;
+$footer-bg: #144377;
+$icon-bg: #366599;
+$link-bg: #366599;
 .footer {
-    h5 {
-    text-transform: uppercase;
+    .callout {
+        border: none;
+        background-color: $footer-bg;
+        border-bottom: 1px solid $white;
+        h5, li, p, a {
+            color: $white;
+        }
+        h5 {
+            text-transform: uppercase;
+        }
     }
     .contact {
         list-style: none;
@@ -10,7 +19,7 @@ $a-bg: #33383b;
             display: inline-block;
             width: 2rem;
             height: 2rem;
-            background-color: $i-bg;
+            background-color: $icon-bg;
             border-radius: 2px;
             font-size: 1rem;
             color: $white;
@@ -24,7 +33,7 @@ $a-bg: #33383b;
             display: inline-block;
             width: 2rem;
             height: 2rem;
-            background-color: $a-bg;
+            background-color: $link-bg;
             border-radius: 2px;
             font-size: 1.5rem;
             color: $white;
@@ -34,9 +43,28 @@ $a-bg: #33383b;
         }
     }
     .footer-menu {
+        .menu {
+            > li:first-child {
+                a {
+                    padding-left: 0;
+                }
+            }
+        }
+        .copyright {
+            .menu {
+                li {
+                    padding-right: 0;
+                }
+            }
+        }
         @media only screen and (max-width: $xx-small-screen) {
             padding-left: 0;
             padding-right: 0;
+        }
+    }
+    .footer-bottom {
+        a {
+            color: $link-bg;
         }
     }
 }

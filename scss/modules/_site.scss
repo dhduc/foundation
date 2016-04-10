@@ -5,7 +5,26 @@
         padding: 3px 0;
     }
 }
-
+.label-white {
+    color: $white;
+}
+/* Pagination */
+.pagination {
+    .current {
+        a {
+            color: $white;
+            &:hover {
+                background: none;
+            }
+        }
+        button {
+            color: $white;
+            &:hover {
+                background: none;
+            }
+        }
+    }
+}
 /* Back-to-top */
 #back-to-top {
     position: fixed;

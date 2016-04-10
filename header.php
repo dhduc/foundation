@@ -19,6 +19,7 @@
     <?php endif; ?>
     <?php wp_enqueue_scripts(); ?>
     <?php wp_head(); ?>
+    <script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/js/jquery-2.1.4.min.js"></script>
 </head>
 <body <?php body_class(); ?>>
 <header>
@@ -34,7 +35,7 @@
                     ));
                     ?>
                 <?php else: ?>
-                    <p>Please setup top menu</p>
+                    <p class="label-white">Please setup top menu</p>
                 <?php endif; ?>
                 <ul class="menu">
                     <li>
@@ -49,12 +50,12 @@
                 </ul>
             </div>
             <div class="top-bar-right">
-                    <?php get_search_form(); ?>
+                <?php get_search_form(); ?>
             </div>
         </div>
     </div>
     <div class="row header">
-        <div class="medium-4 columns">
+        <div class="medium-3 columns">
             <a class='logo' href="<?php echo esc_url(home_url('/')); ?>"
                title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
                 <?php $wptuts_options = get_option('theme_wptuts_options'); ?>
@@ -66,12 +67,12 @@
                 <?php endif; ?>
             </a>
         </div>
-        <div class="medium-8 columns">
+        <div class="medium-9 columns">
             <?php if (has_header_image()): ?>
                 <img id="banner" src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>"
                      width="<?php echo get_custom_header()->width; ?>" alt=""/>
             <?php else: ?>
-                <p>Please setup banner</p>
+                <p>Please setup header</p>
             <?php endif; ?>
         </div>
     </div>
@@ -101,7 +102,7 @@
                 wp_nav_menu($header_menu);
                 ?>
             <?php else: ?>
-                <p>Please setup header menu</p>
+                <p class="label-white">Please setup header menu</p>
             <?php endif; ?>
         </div>
     </div>

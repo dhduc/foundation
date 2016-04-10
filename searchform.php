@@ -12,6 +12,6 @@
         </form>
     </li>
     <li>
-        <button type="button" class="button" id="btn-submit"><i class="fa fa-fw fa-search"></i>Search</button>
+        <button type="button" class="button radius" id="btn-submit"><i class="fa fa-fw fa-search"></i>Search</button>
     </li>
 </ul>

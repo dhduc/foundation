@@ -12,9 +12,9 @@
             <p>
                 <?php echo the_excerpt() ?>
             </p>
-            <p>
+            <div class="post-content">
                 <?php the_content(); ?>
-            </p>
+            </div>
             <div class="callout">
                 <ul class="menu simple">
                     <li><a href="#"><i class="fa fa-fw fa-user"></i>Author: <?php the_author(); ?></a></li>

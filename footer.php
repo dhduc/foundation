@@ -52,7 +52,7 @@
             </div>
         </div>
     </div>
-    <div class="expanded">
+    <div class="expanded footer-bottom">
         <div class="row">
             <div class="medium-6 columns footer-menu">
                 <?php if (has_nav_menu('footer_menu')) : ?>
@@ -66,7 +66,7 @@
                     <p>Please setup footer menu</p>
                 <?php endif; ?>
             </div>
-            <div class="medium-6 columns">
+            <div class="medium-6 columns copyright">
                 <ul class="menu align-right">
                     <li class="menu-text">Copyright © <?php echo date('Y'); ?> <?php bloginfo('name'); ?></li>
                 </ul>

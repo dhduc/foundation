@@ -1,9 +1,32 @@
 $height: 150px;
-$topbar-bg: #eee;
+$topbar-bg: #366599;
+$header-menu-bg: #144377;
 .topbar {
-    background: $topbar-bg;
+    @media only screen and (min-width: $md-screen) {
+        position: fixed;
+        top: 0;
+        z-index: 9999;
+        width: 100%;
+    }
+    background: url('../images/starfield-banner.jpg');
+    padding: 0.6rem;
     ul {
-        background: $topbar-bg;
+        background: none;
+        a {
+            color: $white;
+        }
+    }
+    #searchform {
+        input {
+            background: #333;
+            border-color: #000;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+        button {
+            border-radius: 5px;
+        }
     }
 }
 
@@ -14,7 +37,10 @@ $topbar-bg: #eee;
     }
 }
 .header {
-    margin-top: 10px;
+    margin-top: 75px;
+    @media only screen and (max-width: $x-small-screen) {
+        margin-top: 20px;
+    }
     #logo {
     	width: 180px;
     	height: $height;
@@ -28,7 +54,12 @@ $topbar-bg: #eee;
     }
 }
 .top-bar.header_menu {
+    padding: 0.1rem;
+    z-index: 9000;
     &, & ul {
-        background-color: #333;
+        background-color: $header-menu-bg;
+    }
+    .sub-menu {
+        z-index: 9000;
     }
 }
