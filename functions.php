@@ -79,6 +79,8 @@ function foundation_scripts()
     wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), null);
     // styles
     wp_enqueue_style('styles', get_template_directory_uri() . '/css/styles.css', array(), null);
+    // media
+    wp_enqueue_style('media', get_template_directory_uri() . '/css/media.css', array(), null);
 
     /**
      * Scripts
